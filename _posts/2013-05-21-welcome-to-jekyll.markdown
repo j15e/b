@@ -1,20 +1,22 @@
 ---
 layout: post
-title:  "Trying Jekyll!"
+title:  "Trying Jekyll for the first time"
 date:   2013-05-21 18:15:26
 categories: jekyll update
 ---
 
-Let's see what's so cool about this! Here are my first comments & problems with jekyll.
+This is my first post with Jekyll, yeah!
 
-I know some of theses comments will probably sounds stupid when I'll read in a few days.
+## Issues
 
-## Not watching changes by default
+First, let's have a quick look at the issues I encountered during my setup!
 
-I was a bit confuse by `jekyll serve` not watching changes by default : why would you
+### Server is not watching changes by default
+
+I was a bit confused by `jekyll serve` not watching changes by default : why would you
 run the server if you never update content? Search the help and found `jekyll serve -w`.
 
-## Problem with Python dependency
+### Problem with Python dependency
 
 The `pygments` gem is enable by default and it creates a ruby segfault on my setup.
 I do have python2, but for some weird reasons, I get a ruby + python segfault at the
@@ -26,11 +28,13 @@ Not very documented, but there by default.
 I think a project like this should avoid mixed languages dependencies by default as it
 complexify the setup process.
 
-## Underscores?
+## Opinions
+
+### Underscores?
 
 Why does everything has to begin with an underscore? Weird.
 
-## Not using a Gemfile?
+### Not using a Gemfile?
 
 The documentation does not suggest using a Gemfile : I just don't like this.
 
