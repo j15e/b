@@ -1,4 +1,4 @@
-name: j15e blog
+name: Jean-Philippe Doyle (j15e)
 pygments: true
 exclude: [Gemfile, Gemfile.lock, CNAME]
 markdown: rdiscount
