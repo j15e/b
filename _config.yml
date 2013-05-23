@@ -1,3 +1,4 @@
 name: j15e blog
 pygments: true
 exclude: [Gemfile, Gemfile.lock, CNAME]
+markdown: rdiscount
