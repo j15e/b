@@ -5,3 +5,4 @@ gem 'rdiscount'
 
 gem 'jekyll-asset-pipeline'
 gem 'sass'
+gem 'rake'
