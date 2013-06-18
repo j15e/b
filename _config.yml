@@ -2,3 +2,6 @@ name: Jean-Philippe Doyle (j15e)
 pygments: true
 exclude: [Gemfile, Gemfile.lock, CNAME]
 markdown: rdiscount
+
+asset_pipeline:
+  gzip: true
