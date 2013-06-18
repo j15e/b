@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using jekyll pipieline"
+title:  "Using jekyll pipeline"
 date:   2013-06-17 21:33:00
 categories: jekyll
 ---
