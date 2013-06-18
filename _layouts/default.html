@@ -4,12 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
-
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
+        <meta name="viewport" content="initial-scale=1.0">
         {% css_asset_tag global %}
         - /_assets/css/vendor/cssnormalize-min.css
         - /_assets/css/vendor/syntax.css
@@ -17,37 +12,28 @@
         {% endcss_asset_tag %}
     </head>
     <body>
+      <div class="container">
+        <header>
+          <h1>{{ site.name }}</h1>
+          <h2>Developer, homebrewer & more</h2>
+          <nav>
+            <a href="/">articles</a></h1>
+            <a class="extra" target="_blank" href="http://github.com/j15e/">@github</a>
+            <a class="extra" target="_blank" href="http://twitter.com/j15e/">@twitter</a>
+          </nav>
+        </header>
 
-        <div class="container">
-          <div class="site">
-            <h1 class="title">{{ site.name }}</h1>
-            <div class="header">
-              <h1 class="title"><a href="/">blog</a></h1>
-              <a class="extra" target="_blank" href="http://www.j15e.com">website</a>
-              <a class="extra" target="_blank" href="http://github.com/j15e/">github</a>
-              <a class="extra" target="_blank" href="http://twitter.com/j15e/">twitter</a>
-            </div>
+            {{ content }}
 
-                {{ content }}
-
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Jean-Philippe Doyle<br/>
-                  <strong>Developer, brewer & more</strong>
-                </p>
-                <p>
-                  <a target="_blank" href="https://github.com/j15e/j15e.github.io">View source (⌥⌘U)</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> <!-- /container -->
-        {% javascript_asset_tag global %}
-        - /_assets/js/vendor/hyphenator.js
-        {% endjavascript_asset_tag %}
-        <script type="text/javascript">
-          Hyphenator.run();
-        </script>
+        <footer>
+          <a target="_blank" href="https://github.com/j15e/j15e.github.io">View source (⌥⌘U)</a>
+        </footer>
+      </div>
+      {% javascript_asset_tag global %}
+      - /_assets/js/vendor/hyphenator.js
+      {% endjavascript_asset_tag %}
+      <script type="text/javascript">
+        Hyphenator.run();
+      </script>
     </body>
 </html>
