@@ -18,14 +18,14 @@ There was a very tiny hint in the documentation :
 >The pattern is not a regular expression; instead it follows rules **similar**
 to shell filename globbing.
 
-Specifically in this case, `fnmatch?` will not match starting `/` or sarting `.`
+Specifically in this case, `fnmatch?` will not match starting `/` or `.`
 with subfolders `/**/` matching.
 
 But you can specify an option flag to enable matching of those cases
 (likely what you expect in most cases) :
 
 {% highlight ruby %}
-File.fnmatch?(expected, test, File::FNM_PATHNAME | File::FNM_DOTMATCH)
+File.fnmatch?(expected, filename, File::FNM_PATHNAME | File::FNM_DOTMATCH)
 {% endhighlight %}
 
 [issue]: https://github.com/rstacruz/sinatra-assetpack/issues/108
