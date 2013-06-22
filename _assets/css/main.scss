@@ -12,6 +12,13 @@ h3 { color: #777; }
 p { margin: 1em 0; }
 a { color: #638dbe; }
 
+blockquote {
+  margin-right: 0;
+  padding-left: 1em;
+  color: #666;
+  border-left: 5px #999 solid;
+}
+
 nav a { font-weight: bold; }
 header {
   h1 { margin-bottom: 0; }
