@@ -11,12 +11,41 @@ h2 { color: #333; }
 h3 { color: #777; }
 p { margin: 1em 0; }
 a { color: #638dbe; }
+ul,ol { margin-left: 1.35em; }
 
 blockquote {
   margin-right: 0;
   padding-left: 1em;
   color: #666;
   border-left: 5px #999 solid;
+}
+
+code {
+  font-size: 0.8em;
+}
+
+pre {
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  padding: 0 .4em;
+
+  &.terminal {
+    border: 1px solid #000;
+    background-color: #333;
+    color: #FFF;
+    code {
+      background-color: #333;
+    }
+  }
+}
+
+code {
+  border: 1px solid #f6f6f6;
+  padding: 0 .2em;
+}
+
+pre code {
+  border: none;
 }
 
 nav a { font-weight: bold; }
@@ -36,42 +65,4 @@ footer { font-size: 0.8em; }
   .date:after {
     content: " -"
   }
-}
-
-/*****************************************************************************/
-/*
-/* Posts
-/*
-/*****************************************************************************/
-
-/* standard */
-#post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
-#post ul, #post ol {
-  margin-left: 1.35em;
-}
-
-#post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-#post pre code {
-  border: none;
-}
-
-/* terminal */
-#post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-}
-
-#post pre.terminal code {
-  background-color: #333;
 }

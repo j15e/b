@@ -11,15 +11,17 @@ url for j15e.com, I was already using oAuth. Not very complex after all.
 Twitter *gracefully* dropped dead support of API 1.0, your calls are now being
 served a `410 GONE` http answer with the folloing explaination :
 
-    {"errors":
-      [
-        {
-          "message": "The Twitter REST API v1 is no longer active.
-            Please migrate to API v1.1. https://dev.twitter.com/docs/api/1.1/overview.",
-          "code": 68
-        }
-      ]
+
+{% highlight json %}
+{"errors":
+  [
+    {
+      "message": "The Twitter REST API v1 is no longer active. Please migrate to API v1.1. https://dev.twitter.com/docs/api/1.1/overview.",
+      "code": 68
     }
+  ]
+}
+{% endhighlight %}
 
 The worst thing is JSONP support is also completely dropped and CORS
 (cross origin resource sharing) requests aren't allowed either

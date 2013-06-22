@@ -24,9 +24,9 @@ with subfolders `/**/` matching.
 But you can specify an option flag to enable matching of those cases
 (likely what you expect in most cases) :
 
-```
+{% highlight ruby %}
 File.fnmatch?(expected, test, File::FNM_PATHNAME | File::FNM_DOTMATCH)
-```
+{% endhighlight %}
 
 [issue]: https://github.com/rstacruz/sinatra-assetpack/issues/108
 [fnmatch?]: http://www.ruby-doc.org/core-2.0/File.html#method-c-fnmatch-3F
