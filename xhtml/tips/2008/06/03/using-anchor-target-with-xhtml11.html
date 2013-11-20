@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using anchor target with XHTML1.1</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <link href='/assets/global-4f95d28fa671039d795aecbacd54a16d.css' rel='stylesheet' type='text/css' />
+
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>Jean-Philippe Doyle (j15e)</h1>
+          <h2>Developer, homebrewer & more</h2>
+          <nav>
+            <a href="/">articles</a></h1>
+            <a class="extra" target="_blank" href="http://github.com/j15e/">@github</a>
+            <a class="extra" target="_blank" href="http://twitter.com/j15e/">@twitter</a>
+          </nav>
+        </header>
+
+            <h2>Using anchor target with XHTML1.1</h2>
+<p class="meta">03 Jun 2008</p>
+
+<div id="post" class="hyphenate text" lang="en">
+<p>First, you are not supposed to do so if you follow W3C guidelines. But you may want to do it for valuable reasons. In fact, W3C goal is to transfer target attribute from HTML to CSS, which make a lot of sense because a <em>target</em> is more about the way a page is displayed than its content. But CSS3, which should allow this, is not out yet and won't be supported widely any time soon.</p>
+
+<p>There is a <em>target</em> attribute in XHTML definition (as it does in XHTML1.0 transitional) but is not part of XHTML1.1 since strict version (HTML 4.1 also) it is intend to be display on any device, which  may or may not support target/frames (like mobile phone). But you may want to use <em>target</em> for those which can support it, since it should not create any issue if links open in a new window only when possible. This would be possible and clean using CSS3 style sheet but eh, doesn't exist yet!</p>
+
+<p>I have found two way to use the target attribute without getting invalid code : either modify the XHTML1.1 DTD and create your own DTD (Document Type Definition) adding support for the Target module (which won't be XHTML1.1 anymore, but will validate) or add some JavaScript. The concern attribute is, obviously, part of the <a href="http://www.w3.org/TR/xhtml-modularization/abstract_modules.html#s_targetmodule" target="_blank">Target module</a>. I won't explain how to create your own DTD here since it is a bit more complex, but you can read more about how to do so at <a href="http://www.w3.org/MarkUp/Guide/xhtml-m12n-tutorial/">W3C</a> (explanations aren't that clear).</p>
+
+<p>In order to bypass anchor <em>target</em> using JavaScript, you can use instead of <em>target</em> attribute, the <em>rel </em>attribute, which his use is not  intend to be use like that, but it will work and be valid.</p>
+
+<pre><code>&lt;a rel="_blank" href="example.html"&gt;Exemple&lt;/a&gt;
+</code></pre>
+
+<p>Then add this piece of JavaScript code that will create the target attribute from the rel attribute for all anchor in current page :</p>
+
+<pre><code>function anchorRel() {
+  if (!document.getElementsByTagName) return
+  var anchors = document.getElementsByTagName("a")
+  for (var i=0; i&lt;anchors.length; i++) {
+    anchors[i].target = anchors[i].getAttribute("rel")
+  }
+}
+</code></pre>
+
+<p>And add the <em>anchorRel</em> function to your initializing JS function or, if you do not use any, you can simply add the following :</p>
+
+<pre><code>window.onload = anchorRel;
+</code></pre>
+
+</div>
+
+
+        <footer>
+          <a target="_blank" href="https://github.com/j15e/j15e.github.io">View source (⌥⌘U)</a>
+        </footer>
+      </div>
+    </body>
+</html>

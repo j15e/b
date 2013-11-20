@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>What is a Gemfile versus a Gemspec</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <link href='/assets/global-4f95d28fa671039d795aecbacd54a16d.css' rel='stylesheet' type='text/css' />
+
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>Jean-Philippe Doyle (j15e)</h1>
+          <h2>Developer, homebrewer & more</h2>
+          <nav>
+            <a href="/">articles</a></h1>
+            <a class="extra" target="_blank" href="http://github.com/j15e/">@github</a>
+            <a class="extra" target="_blank" href="http://twitter.com/j15e/">@twitter</a>
+          </nav>
+        </header>
+
+            <h2>What is a Gemfile versus a Gemspec</h2>
+<p class="meta">28 Jun 2013</p>
+
+<div id="post" class="hyphenate text" lang="en">
+<p><em>Foreword : when I started working with ruby a few years ago, it took me quite some time to
+figure out the whole stack and every subtil detail of it. I will write a few
+articles about the ruby toolbox and my current understanding of it, stuff I would
+have love to have been told long ago.</em></p>
+
+<p>In plain english, here is what they do and why you should use them. I think the
+best way to start explaining this, is to know where they come from and what
+is their respective purpose.</p>
+
+<p><strong><a href="http://docs.rubygems.org/read/chapter/20">Gemspec</a></strong> was created in 2006 by Rubygems and is the way to
+define a ruby package (a gem), publish it on rubygems.org and install them with
+the <code>gem</code> command.</p>
+
+<p>When you define a gem, you set a name, a version, an author, etc. and you also specify
+which gems your gem depends on, and this is where things might get confusing at first.</p>
+
+<p><strong><a href="http://gembundler.com/v1.3/man/gemfile.5.html">Gemfile</a></strong> was created in 2009 by Bundler (Engine Yard, Andre Arko) as a
+way to define a project gems dependency, deal with dependencies version and lock versions
+to use the same environment across developpers &amp; deployments.</p>
+
+<p>When using a Gemfile, bundler is resolving each gem's gemspec and gather them all to
+find out what conflicts might occurs and what which most up to date version of a gem
+is compatible among all your dependencies.</p>
+
+<p><strong>When you are doing a ruby project</strong> which isn't a gem, you should only use a <code>Gemfile</code>.
+It deals with dependencies versions, it locks versions in a file because you need to
+share same gems versions among developers &amp; deployments.</p>
+
+<p><strong>When you are building a gem</strong>, your sure need a gemspec. And, optionally, if you would like
+to either keep a track of dependencies that aren't part of the real gem dependencies
+(ex. tests framework, debugging tools) you may create a Gemfile. In either case, you can
+tell bundler in the <code>Gemfile</code> to read the gemspec :</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1"># Gemfile</span>
+<span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+
+<span class="c1"># Gems for gem development</span>
+<span class="n">group</span> <span class="ss">:debug</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">&#39;debugger&#39;</span><span class="p">,</span> <span class="ss">:platform</span> <span class="o">=&gt;</span> <span class="s1">&#39;mri&#39;</span>
+  <span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span>
+  <span class="n">gem</span> <span class="s1">&#39;gem-release&#39;</span>
+<span class="k">end</span>
+
+<span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">&#39;contest&#39;</span>
+  <span class="n">gem</span> <span class="s1">&#39;rake&#39;</span>
+  <span class="n">gem</span> <span class="s1">&#39;mocha&#39;</span>
+<span class="k">end</span>
+
+<span class="c1"># Bundler will get other dependencies from the gemspec.</span>
+<span class="n">gemspec</span>
+</code></pre></div>
+
+
+<p>Some pure rubyist might told your is wrong and that you should never include a <code>Gemfile</code>
+in a ruby gem since bundler is a system for deployments and has nothing to do with a gem.</p>
+
+<p>I agree to disagree.</p>
+
+</div>
+
+
+        <footer>
+          <a target="_blank" href="https://github.com/j15e/j15e.github.io">View source (⌥⌘U)</a>
+        </footer>
+      </div>
+    </body>
+</html>
