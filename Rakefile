@@ -24,6 +24,6 @@ task :publish => [:generate] do
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m #{message.shellescape}"
     system 'git remote add origin git@github.com:j15e/j15e.github.io.git'
-    system 'git push origin master --force'
+    system 'git push origin gh-pages --force'
   end
 end
